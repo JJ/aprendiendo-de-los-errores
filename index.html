@@ -216,7 +216,7 @@ void ea(){
                                 <h1>El acceso a la <em>consola</em> es
                                     imprescindible para poder
                                     depurar</h1>
-                                
+
 	                        <pre><code>#!/usr/local/bin/node
 var rest = require('restler');
 var url = 'http://127.0.0.1:8080/contador/';
@@ -309,9 +309,9 @@ process.argv.forEach(function (val, index, array) {
                             uno el pardillo, mal de muchos... Pero no
                             ayuda, desde luego, a que el resto te
                                     ayude a solucionarlo.</aside>
-                                
+
                             </section>
-                            
+
 	                    <section data-background='img/selfi-con-error.jpg'
 	                             alt='selfie con error'>
 	                        <h2 class='bkg'>Nuevo género:</h2>
@@ -326,11 +326,102 @@ process.argv.forEach(function (val, index, array) {
 	                    </section>
 	                </section> <!-- Fin de pila -->
 
-	                <section><!-- fool proof -->
+	                <section><!-- Dónde está el error -->
+	  	            <section data-background='img/error-rojo.jpg'>
+		                <h1 class='bkg'>¿Dónde está el error?</h1>
+		                <aside class='notes'>... Hay que averiguar qué es lo
+	  	                    que ha sucedido. Cuando compilas o ejecutas algo
+	  	                    puedes encontrarte con un error así. A veces hasta que
+	  	                    has pasado tests. Encontrar el error puede ser
+	  	                    complicado, pero no imposible</aside>
+		            </section>
+
+		            <section data-transition='fade'>
+		                <img src='img/error2.jpg' alt='error gordo'>
+		                <aside class='notes'>Por lo menos es una captura de
+		                    pantalla. Algo más se ve. Mayúsculas + Imprimir
+		                    pantalla, no lo olvidéis.</aside>
+		            </section>
+
+		            <section data-transition='fade'>
+		                <img src='img/error2-cosas.jpg' alt='señalando al  error '>
+		                <aside class='notes'>Los mensajes de error incluyen
+		                    un <em>traceback</em>, o un rastro de la pila de
+		                    llamadas de la que hemos hablado antes. Así puedes
+		                    averiguar dónde ha sucedido el error y al menos
+		                    intentar depurar de todas las formas posible. Los
+		                    paraguas son tan erróneos que ni siquiera tienen
+		                    esto. Te mojas, y no sabes en qué punto del diseño a
+		                    alguien se le ocurrió un chisme que cubriera tan
+		                    poco y tan malamente y que actuara como vela al viento, así que no puedes echarle la
+		                    culpa a nadie.</aside>
+		            </section>
+
+	                </section><!-- end Dónde está -->
+
+	                <section> <!-- Cuál es el error -->
+	                    <section data-background='img/error3.jpg'>
+	                        <h3 class='bkg'>Los computadores son gente honesta</h3>
+	                        <aside class='notes'>Siempre dicen la verdad y siempre te
+	                            dan una pista de por dónde puede estar el error. Las
+	                            excepciones están bien diseñadas y además tienen tipo, en
+	                            este caso <code>AttributeError</code>. Una vez
+	                            identificado el error y dónde está, se puede trabajar con
+	                            él. Depurando, por ejemplo.</aside>
+	                    </section>
+
+	                    <section>
+	                        <img
+	                            src='https://farm8.staticflickr.com/7006/6508102407_4daeef6529_o_d.jpg'
+	                            alt='418 soy una tetera'>
+	                        <aside class='notes'>Los errores HTTP, por ejemplo, son
+	                            claros, informativos y están bien definidos, como este,
+	                            que se definió en un RFC el 1 de abril de no sé cuando. Además,
+	                            tienen una parte en el cliente, que es lo que vemos, y una
+	                            parte en el servidor, que podemos consultar en los
+	                            mensajes del registro, normalmente en error_log. Además,
+	                            significado claro. 4XX: tú tienes la culpa. 5xx: el
+	                            servidor tiene la culpa y en ese caso hay que mirar el
+	                            mensaje de error en el log.</aside>
+	                    </section>
+
+	                    <section>
+	                        <h1>Enróllate</h1>
+	                        <img src='img/control-path.jpg' alt='control path too
+	                                  long'>
+	                        <aside class='notes'>La mayor parte de las órdenes te
+	                            permiten trabajar en modo <em>verbose</em>, que da mucha
+	                            más información sobre lo que se está haciendo. En este
+	                            caso te dice que pongas <code>-vvvv</code>, que es el
+	                            comando para ssh, pero otros comandos tienen opciones
+	                            similares. Es simplemente cuestión de tratar de averiguar
+	                            qué ha sucedido de esa forma</aside>
+	                    </section>
+
+	                    <section data-background='img/gameover.jpg'>
+	                        <h2 class='bkg'>Evita la </h2>
+	                        <h1 class='bkg fragment'><em>amimevaitis</em></h1>
+	                        <aside class='notes'>Normal cuando uno se encuentra al
+	                            otro lado del error, como cuando eres profesor y corriges
+	                            algo. Pista, chicos: cuando un profesor diga que algo no
+	                            funciona, hay dos opciones: el profesor no tiene ni
+	                            puñetera idea de lo que está haciendo, lo que puede
+	                            suceder, pero también hay otra opción: que no funcione. Os
+	                            aconsejo que aunque penséis lo primero, es más, aunque
+	                            estéis seguros de lo primero, miréis a ver si
+	                            sucede lo segundo
+	                            También pasa con los paraguas. Ahora me diréis que
+	                            funcionan. ¡Pues no es cierto!</aside>
+	                    </section>
+
+	                </section><!-- Fin cuál es el error -->
+
+
+	                <section><!-- fool proof en tus aplicaciones -->
 	                    <section
 	                        data-background='https://farm8.staticflickr.com/7391/12752256845_0b2e4856d0_z_d.jpg'
 	                        alt='usb poka yoke'>
-                                <h2>En tus aplicaciones</h2>
+                                <h2>Tus aplicaciones</h2>
 	                        <h1 class='fragment'>Hazlas a prueba de fallos</h1>
 
 	                        <aside class='notes'><a href='https://en.wikipedia.org/wiki/Poka-yoke'>Poka-yoke o ポカヨケ</a>
@@ -373,7 +464,7 @@ test('loads', function (t) {
 	                            vectores se generen con la longitud correcta... En
 	                            general, el <a
 	                                            href='https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas'>desarrollo
-	                            basado en test, TDD o guiado por pruebas</a> pone los
+	                                basado en test, TDD o guiado por pruebas</a> pone los
 	                            tests antes que el código y se desarrolla contra los
 	                            tests, que deben cubrir todos los posibles caminos del
 	                            código, para lo que están los tests de cobertura. Estos
@@ -401,13 +492,13 @@ test('loads', function (t) {
 	                            continua</a>, a los que hay que añadir los test de
 	                            aceptación, de sistema o los test de pre-vuelo, hechos en
 	                            un entorno como el de
-	                        producción. En realidad esto es un
-	                        mockup... </aside>
+	                            producción. En realidad esto es un
+	                            mockup... </aside>
 	                    </section>
 
 	                    <section
 	                        data-background='https://farm6.staticflickr.com/5065/5626938236_90d8debc32_o_d.jpg'
-	                                         alt='I broke the build'>
+	                        alt='I broke the build'>
 	                        <h1 class='bkg'>Integra continuamente</h1>
 	                        <aside class='notes'>La integración continua se ocupa de
 	                            construir, es decir, compilar o procesar los fuentes de, la aplicación, 
@@ -503,96 +594,7 @@ class NoIssueException(Exception):
 
 	                </section><!-- end fool proof o baka yoke-->
 
-	                <section><!-- Dónde está el error -->
-	  	            <section data-background='img/error-rojo.jpg'>
-		                <h1 class='bkg'>¿Dónde está el error?</h1>
-		                <aside class='notes'>... Hay que averiguar qué es lo
-	  	                    que ha sucedido. Cuando compilas o ejecutas algo
-	  	                    puedes encontrarte con un error así. A veces hasta que
-	  	                    has pasado tests. Encontrar el error puede ser
-	  	                    complicado, pero no imposible</aside>
-		            </section>
-
-		            <section data-transition='fade'>
-		                <img src='img/error2.jpg' alt='error gordo'>
-		                <aside class='notes'>Por lo menos es una captura de
-		                    pantalla. Algo más se ve. Mayúsculas + Imprimir
-		                    pantalla, no lo olvidéis.</aside>
-		            </section>
-
-		            <section data-transition='fade'>
-		                <img src='img/error2-cosas.jpg' alt='señalando al  error '>
-		                <aside class='notes'>Los mensajes de error incluyen
-		                    un <em>traceback</em>, o un rastro de la pila de
-		                    llamadas de la que hemos hablado antes. Así puedes
-		                    averiguar dónde ha sucedido el error y al menos
-		                    intentar depurar de todas las formas posible. Los
-		                    paraguas son tan erróneos que ni siquiera tienen
-		                    esto. Te mojas, y no sabes en qué punto del diseño a
-		                    alguien se le ocurrió un chisme que cubriera tan
-		                    poco y tan malamente y que actuara como vela al viento, así que no puedes echarle la
-		                    culpa a nadie.</aside>
-		            </section>
-
-	                </section><!-- end Dónde está -->
-
-	                <section> <!-- Cuál es el error -->
-	                    <section data-background='img/error3.jpg'>
-	                        <h3 class='bkg'>Los computadores son gente honesta</h3>
-	                        <aside class='notes'>Siempre dicen la verdad y siempre te
-	                            dan una pista de por dónde puede estar el error. Las
-	                            excepciones están bien diseñadas y además tienen tipo, en
-	                            este caso <code>AttributeError</code>. Una vez
-	                            identificado el error y dónde está, se puede trabajar con
-	                            él. Depurando, por ejemplo.</aside>
-	                    </section>
-
-	                    <section>
-	                        <img
-	                            src='https://farm8.staticflickr.com/7006/6508102407_4daeef6529_o_d.jpg'
-	                            alt='418 soy una tetera'>
-	                        <aside class='notes'>Los errores HTTP, por ejemplo, son
-	                            claros, informativos y están bien definidos, como este,
-	                            que se definió en un RFC el 1 de abril de no sé cuando. Además,
-	                            tienen una parte en el cliente, que es lo que vemos, y una
-	                            parte en el servidor, que podemos consultar en los
-	                            mensajes del registro, normalmente en error_log. Además,
-	                            significado claro. 4XX: tú tienes la culpa. 5xx: el
-	                            servidor tiene la culpa y en ese caso hay que mirar el
-	                            mensaje de error en el log.</aside>
-	                    </section>
-
-	                    <section>
-	                        <h1>Enróllate</h1>
-	                        <img src='img/control-path.jpg' alt='control path too
-	                                  long'>
-	                        <aside class='notes'>La mayor parte de las órdenes te
-	                            permiten trabajar en modo <em>verbose</em>, que da mucha
-	                            más información sobre lo que se está haciendo. En este
-	                            caso te dice que pongas <code>-vvvv</code>, que es el
-	                            comando para ssh, pero otros comandos tienen opciones
-	                            similares. Es simplemente cuestión de tratar de averiguar
-	                            qué ha sucedido de esa forma</aside>
-	                    </section>
-
-	                    <section data-background='img/gameover.jpg'>
-	                        <h2 class='bkg'>Evita la </h2>
-	                        <h1 class='bkg fragment'><em>amimevaitis</em></h1>
-	                        <aside class='notes'>Normal cuando uno se encuentra al
-	                            otro lado del error, como cuando eres profesor y corriges
-	                            algo. Pista, chicos: cuando un profesor diga que algo no
-	                            funciona, hay dos opciones: el profesor no tiene ni
-	                            puñetera idea de lo que está haciendo, lo que puede
-	                            suceder, pero también hay otra opción: que no funcione. Os
-	                            aconsejo que aunque penséis lo primero, es más, aunque
-	                            estéis seguros de lo primero, miréis a ver si
-	                            sucede lo segundo
-	                            También pasa con los paraguas. Ahora me diréis que
-	                            funcionan. ¡Pues no es cierto!</aside>
-	                    </section>
-
-	                </section><!-- Fin cuál es el error -->
-
+                        <!-- finales -->
 	                <section
 	                    data-background='https://farm8.staticflickr.com/7003/6432795643_cf77d5da4d_b_d.jpg'
 	                                     alt='cargo cult'>
