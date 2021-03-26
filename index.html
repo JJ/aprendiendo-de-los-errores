@@ -1,25 +1,619 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        
+	<title>Todo lo que sé lo aprendí de los mensajes de error</title>
+        
+	<link rel="stylesheet" href="dist/reset.css">
+        <link rel="stylesheet" href="css/extra.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+        
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+    </head>
+    <body>
+	<div class="reveal">
+	    <div class="slides">
 
-		<title>reveal.js</title>
+                <section data-background ='https://farm3.staticflickr.com/2587/3834138653_9eac8e545e_o_d.png' alt='paraguas'>
+	                    <aside class='notes'>Los paraguas serán alguna vez
+	                        reconocidos como uno de los mayores errores de la
+	                        humanidad. Hay una vasta conspiración mundial de los
+	                        fabricantes de paraguas para que usemos algo que para lo
+	                        único que sirve es para coreografiar bonitas canciones como
+	                        "Singing in the rain" y para ser abandonado en algún lugar
+	                        que uno luego no recuerda. Porque, ¿quién ha olvidado
+	                        alguna vez algún paraguas en algún sitio? Y, por otro lado y lo que es más importante,
+	                        ¿quién ha acabado empapado después de usar un paraguas? Y,
+	                        lo que es peor, quién se ha escurrido y se ha pegado un
+	                        guarrazo por llevar un paraguas en la mano y no poder
+	                        agarrarse a nada más cuando se escurre? Un gran error. Todo es un error. </aside>
+	                </section>
 
-		<link rel="stylesheet" href="dist/reset.css">
-                <link rel="stylesheet" href="css/extra.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+	                <section><h1>Errar es humano</h1>
+	                    <h2 class='fragment'>Pero para liarla parda necesitas un ordenador</h2>
+	                    <h3 class='fragment'>Bill Vaughan, traducción libre</h3>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	                    <aside class='notes'>La cita
+	                        investigada <a href='http://quoteinvestigator.com/2010/12/07/foul-computer/'>aquí,
+	                        atribuyéndola a "Senator Soaper"</a>. Los ordenadores son realmente
+	                        estúpidos, hay que contarle cómo hacer las cosas. Y en
+	                        estas recetas el error puede provenir de muchas fuentes posibles. </aside>
+	                </section>
+
+	                <section><blockquote>Programa: hechizo lanzado sobre un
+	                    ordenador que convierte lo que uno teclea en mensajes de
+	                    error.</blockquote>
+	                    <h3>De "The jargon file"</h3>
+	                    <aside class='notes'>De la misma forma que el paraguas es un
+	                        artefacto mágico que te hace pensar que no te estás mojando
+	                        aunque, en realidad, te estás poniendo sopa. Como me pasó a
+	                        mi en las Canarias una vez. "Porque voy en manga corta,
+	                        estoy en las Canarias y es mediados de julio, que si no
+	                        estaría pasando un frío de cojones".  Así que los errores han estado ahí
+	                        desde el principio, pero no siempre han sido de la misma forma.</aside>
+	                </section>
+
+	                <!-- errores en la antiguedad -->
+	                <section>
+
+	                    <section data-background='https://farm5.staticflickr.com/4070/4599467981_79985d042b_o_d.gif'
+		                     alt='Spectrum fail' >
+	                        <aside class='notes'>Al principio todo lo que había era
+		                    una pantalla en negro, un reset, y algún pixel
+		                    parpadeando o algo así. Nada que te permitiera
+		                    averiguar qué era lo que había
+	                            pasado. Un ejemplo de lo que le esperaba a un
+	                            programador con algún problema: un reset solo o a mano y a figurarte qué
+	                            diablos había pasado. Lo peor no es que sucediera siempre,
+	                            sino que sucediera sólo a veces...  Afortunadamente, con el tiempo se mejoró algo.
+	                    </section>
+	                    
+	                    <section data-background='https://farm1.staticflickr.com/94/253736080_0bcb324038_o_d.jpg'
+		                     alt='abort, retry, fail'>
+	                        <aside class='notes'>Llegaron los 90 y se abandonaron las
+	                            hombreras y los errores poco informativos. Si has usado alguna máquina MSDOS,
+	                            seguro que te ha
+	                            sucedido <a href='https://en.wikipedia.org/wiki/Abort,_Retry,_Fail%3F'>esto
+	                            alguna vez</a>. Al menos era una mejora: te ofrecía un
+	                            camino de salida, aunque no estaba claro qué había qué
+	                            había qué hacer y qué podía pasar si hacías Fail o si
+	                            hacías Abort. Pero así apareció uno de los patrones de
+		                    comportamiento con los errores: <em>Retry</em>,
+		                    siempre reintentar a ver qué pasa. Como con los
+		                    paraguas. La gente sigue usándolos a pesar de que
+		                    no sirven absolutamente para nada. Los paraguas son
+		                    un Fail con varillas. </aside> 
+	                    </section>
+
+	                    <section>
+	                        <img src='https://upload.wikimedia.org/wikipedia/commons/d/db/Guru_meditation.gif' alt='Guru meditation'>
+	                        <aside class='notes'>Las <a
+	                                                     href='https://en.wikipedia.org/wiki/Guru_Meditation'>Meditaciones
+	                            del guru</a> empezaron en el Commodore Amiga, que
+	                            inventaron un juego donde había que estar quieto para
+	                            ganar; si no se estaba quieto, el error de "meditación de
+	                            guru" se producía. De ahí pasó a los sistemas, e incluso a
+	                            las Nintendo DS en versión homebrew y al sistema de cache
+	                            Varnish y VirtualBox. Y esta broma ha servido de
+	                            inspiración a generaciones venideras, como... </aside>
+	                    </section>
+
+	                    <section
+	                        data-background='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tumbeasts_servers.png/1200px-Tumbeasts_servers.png?download'>
+	                        <aside class='notes'>Ahora sí que hemos mejorado, con
+	                            ballenitas, monstruitos y cosas así</aside>
+	                    </section>
+	                </section>
+	                <!-- fin sección -->
+
+	                <section>
+	                    <section><h1>Un error es</h1>
+	                        <h2 class='fragment'> una situación anómala o excepcional que requiere
+	                            tratamiento</h2>
+	                        <img
+	                            src='https://farm1.staticflickr.com/36/97853441_f2e0574809_o_d.png'
+	                            alt='error:Interno'>
+
+	                        <aside class='notes'>Y normalmente da lugar a <a
+	                                                                          href='https://en.wikipedia.org/wiki/Error_message'>mensajes
+	                            de error</a>, que es de lo que (principalmente) vamos a
+	                            hablar hoy. Y de paraguas. Por eso reintentarlo no suele ser una buena
+	                            opción, como en las pelis cuando no funciona el teléfono que
+	                            le dan al botón de colgar varias veces... El ordenador, el
+	                            sistema operativo, el compilador, el programa, nos avisa de
+	                            que hay algo que no funciona. Y tenemos que hacer algo al
+	                            respecto. Este error es una captura mía de una web de la
+	                            Junta. Moderno: https://www.flickr.com/photos/atalaya/97853441/ </aside>
+	                    </section>
+
+	                    <section>
+	                        <h2>Error: <em>Segmentation fault</em></h2>
+	                        <h3 class='fragment'>Tratamiento: core dumped</h3>
+	                        <img
+	                            src='https://farm4.staticflickr.com/3509/3823543639_60e80abf25_o_d.png'
+	                            alt='core dumped'>
+	                        <aside class='notes'>Un <a
+	                                                    href='https://en.wikipedia.org/wiki/Segmentation_fault'>fallo
+	                            de segmentación venía dado</a> por un error de acceso a
+	                            la memoria lanzado por el hardware.  Algo que podía
+	                            suceder cada dos por tres cuando uno programaba en C o C++
+	                            y accedía a memoria que no debía. Afortunadamente, de esa
+	                            pantalla poco informativa salía alguna información: el
+	                            <em>core dumped</em>, un volcado de la memoria que se
+	                            podía analizar buscando culpables. Lo que aparecía en la
+	                            pantalla era bastante poco informativo, pero lo que había
+	                            en un fichero llamado <code>CORE</code>, no. Si fuera un paraguas,
+	                            usarías el paraguas, acabarías empapado: error. Ahora, mira el
+	                            paraguas y las varillas a ver dónde está el error. Lo que
+	                            también es un error, porque el error de un paraguas es que no es una
+	                            tienda de campaña. Sólo el hecho de que se pueden producir
+	                            core dumped, y se producen, debería de ser una buena razón
+	                            para no enseñar C, pero la gente sigue enseñando C, igual
+	                            que usando paraguas. </aside>
+	                    </section>
+
+	                    <section
+	                        data-background='https://farm9.staticflickr.com/8811/18287511336_57e7dafe3d_k_d.jpg'
+	                                         alt='gusanito'>
+	                        <h1 class='bkg'>Se impone una depuración</h1>
+
+	                        <aside class='notes'>La depuración siempre ha estado ahí
+	                            como técnica disponible al programador, desde el
+	                            principio. En lo más simple, se trata simplemente de saber
+	                            dónde está el programa y los valores de variables relevantes.</aside>
+	                    </section>
+
+	                    <section>
+	                        <pre><code>#include "tontitest.h"
+void ea(){
+  printf( "Aquí estamos porque hemos venío\n" );
+}</code></pre>
+	                        <aside class='notes'>Algo así se encuentra <a
+	                                                                       href='https://github.com/ninglinli/UnixSystemProgramming/blob/9c66947df8a8af7a09acd3688febdf5416e4a07e/ninglinli.lab3/ex3/here.c'>aquí,
+	                            por ejemplo</a>a>, pero en muchos otros sitios. 
+	                    </section>
+	                    <section>
+	                        <pre><code>public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("Here I am");
+        System.out.println("Hello World!");
+    }
+}</code></pre>
+	                        <aside class='notes'>Sacado de <a
+                                                                   href='https://github.com/lukaszkusy/gitflowpoc/blob/0386dfc7af20d86906fbbe3f5e7ef976af3c921f/src/Main.java'>aquí</a>,
+                                    pero con muchos más ejemplos</aside>
+	                    </section>
+
+	                    <section>
+	                        <pre><code>#!/usr/local/bin/node
+var rest = require('restler');
+var url = 'http://127.0.0.1:8080/contador/';
+process.argv.forEach(function (val, index, array) {
+    console.log( "Argumento "+index+" valor "+val ); // Qué recibimos
+    if ( index > 1 ) {
+	rest.put( url + val ).on('complete', function( data ) {
+	    console.log( data ); // Qué ha llegado
+	} );
+    }
+});</code></pre>
+	                        <aside class='notes'>Cuanto más moderno es el lenguaje, más
+                                    se siguen usando los mismos métodos. Hay que saber dónde está
+                                    uno, qué valor tienen las cosas, y si se acaba metiendo alguna
+                                    gamba, interesa saber por qué, incluso en programas simples
+                                    como este.</aside>
+	                    </section>
+
+	                    <section>
+	                        <img
+	                            src='https://i.ytimg.com/vi/sCtY--xRUyI/hqdefault.jpg'
+	                            alt='debugging'>
+	                        <aside class='notes'>el <code>gdb</code> de la GNU
+	                            permitía examinar la memoria, hacer un "bt" o backtrace
+	                            que te decía el contenido de la pila y te permitía ver los
+	                            contenidos de las variables en un marco u otro de la pila.</aside>
+	                    </section>
+	                </section>
+
+	                <section> <!-- Hablemos de la pila -->
+	                    <section data-background='https://farm4.staticflickr.com/3923/14210516939_e8fc79faae_k_d.jpg' alt='la pila que se cae'>
+	                        <h1 class='bkg'>La pila rebosa</h1>
+	                        <aside class='notes'>La pila es un elemento importante en
+	                            la depuración y uno de los elementos más importantes
+	                            para entender los mensajes de error. Contiene información de todas las llamadas a
+	                            funciones, junto con un <a
+	                                                        href='https://en.wikipedia.org/wiki/Call_stack'> <em>stack
+	                            frame</em></a> con más meta información: de dónde viene, a
+	                            dónde va, variables locales, parámetros, contexto de la
+	                            función o subrutina... La pila de llamadas está compuesta de
+	                            marcos de pila o stack frames. Y hay que recordar este
+	                            concepto, porque es importante a la hora de interpretar un
+	                            error. Un desbordamiento de pila es un error
+	                            relativamente frecuente, que sucede, por ejemplo,
+	                            cuando se asignan variables locales que ocupan demasiado
+	                            espacio dentro de una
+	                            función, o se está llamando a una función recursiva de
+	                            forma infinita. Como con los paraguas, que se usan sin
+	                            ningún tipo de limitación y así nos luce el pelo (y se
+	                            nos moja). Algo
+	                            que te puede suceder también mentalmente si te empeñas
+	                            en ejecutar algo que produce un error y lo sigue
+	                            produciendo, ya sabes, abort, retry, fail, pues retry y
+	                            más retry. </aside>
+	                    </section>
+
+	                    <section>
+	                        <img src='img/tweet-so.png' alt='The only exception you will ever need'>
+	                        <aside class='notes'>Este <a href='https://twitter.com/DivineOmega/status/695744177557106688'>tweet</a>,
+	                            que además es reciente, resume una de las formas
+	                            principales de averiguar qué diablos es lo que ocurre
+	                            cuando tienes un error. Pero debe ser la última
+	                            opción. Antes hay otras muchas. Y pasan por entender qué
+	                            hace un programa y qué dicen los mensajes de
+	                            error. </aside> 
+	                    </section>
+
+	                    <section data-background='img/error.jpg' alt='mandándolo al grupo de whatsapp'>
+	                        <h1 class='bkg'>Esto no funciona</h1>
+	                        <aside class='notes'>Solucionar un error pasa en muchos
+	                            casos por pedir ayuda, y en muchos casos se hace en el
+	                            grupo de Telegram o de Whatsapp que hay en clase, como en
+	                            este caso. Muchas de las imágenes de errores que hay
+	                            aquí son del grupo de Telegram de Infraestructura
+	                            Virtual, una asignatura de 4º del grado de Ingeniería
+	                            Informática. </aside>
+	                    </section>
+
+	                    <section data-background='img/selfi-con-error.jpg'
+	                             alt='selfie con error'>
+	                        <h2 class='bkg'>Nuevo género:</h2>
+	                        <h1 class='bkg fragment'><em>Selfie</em> con error</h1>
+	                        <aside class='notes'>Este género sale cuando no te has
+	                            instalado el cliente whatsapp o Telegram en el portátil. Lo
+	                            que hace a este una herramienta imprescindible a la hora de
+	                            resolver errores
+	                        </aside>
+	                    </section>
+	                </section> <!-- Fin de pila -->
+
+	                <section><!-- fool proof -->
+	                    <section
+	                        data-background='https://farm8.staticflickr.com/7391/12752256845_0b2e4856d0_z_d.jpg'
+	                        alt='usb poka yoke'>
+	                        <h1 class='bkg'>Hazlo a prueba de fallos</h1>
+
+	                        <aside class='notes'><a href='https://en.wikipedia.org/wiki/Poka-yoke'>Poka-yoke o ポカヨケ</a>
+	                            es una técnica de diseño que intenta hacer algo a prueba de
+	                            fallos. O al menos minimizando la posibilidad de que se
+	                            produzca un error. Lo contrario que se ha hecho con el
+	                            paraguas. Se hace y hala, a que toda una población
+	                            incauta lo use y falle y vuelva a fallar sin que nadie
+	                            se preocupe por que deje de hacerlo. O de prohibirlo.
+	                        </aside>
+	                    </section>
+
+	                    <section
+	                        data-background='https://farm4.staticflickr.com/3362/3546059144_1b33dfdc0e_o_d.jpg'
+	                        alt='que todo funcione'>
+                                <!-- imagen de bloque cuadrado en
+	                        agujero redondo missing -->
+	                        <aside class='notes'>Como informáticos, debemos intentar
+	                            que los errores nos ocurran a nosotros, no al
+	                            usuario. Para eso hay un sistema de desarrollo que intenta
+	                            minimizar los errores; también se puede combinar con <a
+	                                                                                     href='https://en.wikipedia.org/wiki/Error-tolerant_design'>sistemas
+	                            tolerantes a errores</a></aside>
+	                    </section>
+
+	                    <section><h2>Si no lo has probado, está roto</h2>
+	                        <pre><code>var test = require('tap').test,
+nodeo = require(__dirname + '/../../lib/nodeo.js');
+
+var utils = nodeo.utils,
+vector = nodeo.vector;
+
+test('loads', function (t) {
+    t.ok(vector, 'Loaded OK');
+    t.ok( vector.version, 'Version ' + vector.version + ' OK' );
+    t.end();
+});</code></pre>
+
+	                        <aside class='notes'>Para la librería
+	                            <a href='http://github.com/JJ/nodeo'>NodEO</a>, una
+	                            librería de algoritmos evolutivos para Node, este es el
+	                            código que prueba lo básico: que se cargue, que los
+	                            vectores se generen con la longitud correcta... En
+	                            general, el <a
+	                                            href='https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas'>desarrollo
+	                            basado en test, TDD o guiado por pruebas</a> pone los
+	                            tests antes que el código y se desarrolla contra los
+	                            tests, que deben cubrir todos los posibles caminos del
+	                            código, para lo que están los tests de cobertura. Estos
+	                            tests se llaman tests unitarios, pero también son
+	                            necesarios los ... Las metodologías TDD y otras
+	                            similares, como Behavior Driven Design, usan librerías
+	                            que ejecutan los tests como <code>nose</code> y otras
+	                            que permiten programar los tests como todas las que se
+	                            llaman <code>*unit</code>: pyunit, phpunit,
+	                            junit... tests debe ir con código. Pero los programas
+	                            completos también. 
+	                        </aside>
+	                    </section>
+
+	                    <section>
+	                        <h2>Prueba todos los niveles</h2><!-- Missing también -->
+	                        <img src='http://imgur.com/download/qSN5SFR' alt='2 unit
+	                                  tests, 0 integration tests'>
+	                        <aside class='notes'>A los tests unitarios los deben
+	                            seguir tests de integración. Sin ellos, <a
+	                                                                        href='https://www.reddit.com/r/ProgrammerHumor/comments/40o6nc/2_unit_tests_0_integration_tests/'>Puede
+	                            pasar algo así</a>. Y eso incluye los <a
+	                                                                      href='stackoverflow.com/questions/520064/what-is-unit-test-integration-test-smoke-test-regression-test'>smoke
+	                            o sanity checks y los tests de regresión o integración
+	                            continua</a>, a los que hay que añadir los test de
+	                            aceptación, de sistema o los test de pre-vuelo, hechos en
+	                            un entorno como el de producción.</aside>
+	                    </section>
+
+	                    <section
+	                        data-background='https://farm6.staticflickr.com/5065/5626938236_90d8debc32_o_d.jpg'
+	                                         alt='I broke the build'>
+	                        <h1 class='bkg'>Integra continuamente</h1>
+	                        <aside class='notes'>La integración continua se ocupa de
+	                            construir, es decir, compilar o procesar los fuentes de, la aplicación, 
+	                            pasar los tests automáticamente y, en su caso, de desplegarla
+	                            en la nube en donde se nos haya ocurrido hacerlo</aside>
+	                    </section>
+
+	                    <section><pre><code>sudo: required
+dist: trusty
+language: perl
+perl:
+  - "5.16"
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get -y install libhunspell-1.3-0 libhunspell-dev 
+  - >
+      echo "use Test::Text;just_check( 'text','/usr/share/hunspell');" 
+      > just_check.t
+install: cpanm  ExtUtils::PkgConfig Test::Text TAP::Harness
+script: >
+  perl -MTAP::Harness -e 'use utf8; 
+    my $harness = TAP::Harness->new( {verbosity => 0} ); 
+    die "FAIL" if  $harness->runtests( "just_check.t" )->failed;'</code></pre>
+	                        <aside class='notes'>Este fichero para describir la
+	                            integración continua es uno de los más complicados que
+	                            he creado, y es para una guía de Granada en inglés. Está
+	                            escrito en YAML, y describe los pasos que hay que dar
+	                            para pasar los tests: instalar cosas, y finalmente
+	                            ejecutar el test, pasando por un ficherillo
+	                            <code>just_check.t</code> que es el que efectivamente lo
+	                            hace. Para este tipo de cosas se usa Jenkins, o sitios
+	                            como este, Travis o Shippable. Hay muchísimos sitios
+	                            gratuitos que se pueden usar. </aside>
+	                    </section>
+	                    <section
+	                        data-background='https://farm4.staticflickr.com/3113/2681745393_2230fbeeda_o_d.jpg'
+                                alt='has sido tú'>
+	                        <h1 class='bkg'>Has sido tú</h1>
+	                        <aside class='notes'>No es difícil averiguar quién se ha
+	                            cargado el código: el responsable del último
+	                            commit. Todo esto supone que estás usando un sistema de
+	                            gestión de fuentes como git, que deberías hacerlo, Y LO
+	                            SABES. Pero cuando sucede el error...</aside>
+	                    </section>
+
+	                </section><!-- end fool proof o baka yoke-->
+
+	                <section><!-- Dónde está el error -->
+	  	            <section data-background='img/error-rojo.jpg'>
+		                <h1 class='bkg'>¿Dónde está el error?</h1>
+		                <aside class='notes'>... Hay que averiguar qué es lo
+	  	                    que ha sucedido. Cuando compilas o ejecutas algo
+	  	                    puedes encontrarte con un error así. A veces hasta que
+	  	                    has pasado tests. Encontrar el error puede ser
+	  	                    complicado, pero no imposible</aside>
+		            </section>
+
+		            <section data-transition='fade'>
+		                <img src='img/error2.jpg' alt='error gordo'>
+		                <aside class='notes'>Por lo menos es una captura de
+		                    pantalla. Algo más se ve. Mayúsculas + Imprimir
+		                    pantalla, no lo olvidéis.</aside>
+		            </section>
+
+		            <section data-transition='fade'>
+		                <img src='img/error2-cosas.jpg' alt='señalando al  error '>
+		                <aside class='notes'>Los mensajes de error incluyen
+		                    un <em>traceback</em>, o un rastro de la pila de
+		                    llamadas de la que hemos hablado antes. Así puedes
+		                    averiguar dónde ha sucedido el error y al menos
+		                    intentar depurar de todas las formas posible. Los
+		                    paraguas son tan erróneos que ni siquiera tienen
+		                    esto. Te mojas, y no sabes en qué punto del diseño a
+		                    alguien se le ocurrió un chisme que cubriera tan
+		                    poco y tan malamente y que actuara como vela al viento, así que no puedes echarle la
+		                    culpa a nadie.</aside>
+		            </section>
+
+	                </section><!-- end Dónde está -->
+
+	                <section> <!-- Cuál es el error -->
+	                    <section data-background='img/error3.jpg'>
+	                        <h3 class='bkg'>Los computadores son gente honesta</h3>
+	                        <aside class='notes'>Siempre dicen la verdad y siempre te
+	                            dan una pista de por dónde puede estar el error. Las
+	                            excepciones están bien diseñadas y además tienen tipo, en
+	                            este caso <code>AttributeError</code>. Una vez
+	                            identificado el error y dónde está, se puede trabajar con
+	                            él. Depurando, por ejemplo.</aside>
+	                    </section>
+
+	                    <section>
+	                        <img
+	                            src='https://farm8.staticflickr.com/7006/6508102407_4daeef6529_o_d.jpg'
+	                            alt='418 soy una tetera'>
+	                        <aside class='notes'>Los errores HTTP, por ejemplo, son
+	                            claros, informativos y están bien definidos, como este,
+	                            que se definió en un RFC el 1 de abril de no sé cuando. Además,
+	                            tienen una parte en el cliente, que es lo que vemos, y una
+	                            parte en el servidor, que podemos consultar en los
+	                            mensajes del registro, normalmente en error_log. Además,
+	                            significado claro. 4XX: tú tienes la culpa. 5xx: el
+	                            servidor tiene la culpa y en ese caso hay que mirar el
+	                            mensaje de error en el log.</aside>
+	                    </section>
+
+	                    <section>
+	                        <h1>Enróllate</h1>
+	                        <img src='img/control-path.jpg' alt='control path too
+	                                  long'>
+	                        <aside class='notes'>La mayor parte de las órdenes te
+	                            permiten trabajar en modo <em>verbose</em>, que da mucha
+	                            más información sobre lo que se está haciendo. En este
+	                            caso te dice que pongas <code>-vvvv</code>, que es el
+	                            comando para ssh, pero otros comandos tienen opciones
+	                            similares. Es simplemente cuestión de tratar de averiguar
+	                            qué ha sucedido de esa forma</aside>
+	                    </section>
+
+	                    <section data-background='img/gameover.jpg'>
+	                        <h2 class='bkg'>Evita la </h2>
+	                        <h1 class='bkg fragment'><em>amimevaitis</em></h1>
+	                        <aside class='notes'>Normal cuando uno se encuentra al
+	                            otro lado del error, como cuando eres profesor y corriges
+	                            algo. Pista, chicos: cuando un profesor diga que algo no
+	                            funciona, hay dos opciones: el profesor no tiene ni
+	                            puñetera idea de lo que está haciendo, lo que puede
+	                            suceder, pero también hay otra opción: que no funcione. Os
+	                            aconsejo que aunque penséis lo primero, es más, aunque
+	                            estéis seguros de lo primero, miréis a ver si
+	                            sucede lo segundo
+	                            También pasa con los paraguas. Ahora me diréis que
+	                            funcionan. ¡Pues no es cierto!</aside>
+	                    </section>
+
+	                </section><!-- Fin cuál es el error -->
+
+	                <section
+	                    data-background='https://farm8.staticflickr.com/7003/6432795643_cf77d5da4d_b_d.jpg'
+	                                     alt='cargo cult'>
+	                    <h1 class='bkg'>Evita el <em>cargo cult</em></h1>
+	                    <aside class='notes'>Para evitar errores, aparte de los tests
+	                        anteriores (que no sirven de nada si
+	                    no son completos). Se trata de programar copiando
+	                        secciones enteras de código, de transparencias o de lo que
+	                        sea, sin entender realmente de qué se trata.<a
+	                                                                        href='https://en.wikipedia.org/wiki/Cargo_cult_programming'>En
+	                        programación</a>, se corre el riesgo de tomar cosas de
+	                        diapositivas o ejemplos sin mucha reflexión, lo que hace que
+	                        no se entienda el código, sino que simplemente se trate de que
+	                        funcione. Eso causa todo tipo de problemas, incluyendo el
+	                        principal: no se aprende lo que se trata de transmitir en
+	                        clase. </aside>
+	                </section>
+
+	                <section
+	                    data-background='https://farm3.staticflickr.com/2637/4051466593_13a1cb9464_b_d.jpg'>
+	                    <h1 class='bkg'>StackOverflow es tu amigo</h1>
+	                    <h2 class='bkg fragment'>Pero tú debes ser su amigo también</h2>
+	                    <aside class='notes'>Aunque debe ser el último
+	                        recurso. Poner el error entre comillas y buscar en
+	                        Google. Seguro que va a aparecer SO, pero no
+	                        necesariamente. No como con los paraguas. ¿A quién le
+	                        preguntas algo? ¿A los chinos? Por el camino, tienes que
+	                        hacer el error reproducible y averiguar la
+	                        configuración. ¿Puede ser un fallo de versión? ¿Puede ser que
+	                        actualizando se solucione? El proceso de preparación de la
+	                        pregunta ayuda a la solución.
+	                    </aside>
+	                </section>
+
+	                <section
+	                    data-background='https://farm9.staticflickr.com/8700/16870559579_930471e31c_z_d.jpg'
+	                                     alt='pegatas GitHub'>
+	                    <h1 class='bkg'><em>Issue</em> en <a
+	                                                          href='http://github.com/'>GitHub</a></h1>
+	                    <aside class='notes'>Y esto gracias a que el 100%, o al
+	                        menos espero que el 100%, de las herramientas que usamos para
+	                        aprender informática son libres. Puedes interaccionar con el
+	                        creador y pedirle cosas y de la misma forma, puedes también
+	                        aportar soluciones si es que lo has encontrado. GitHub es
+	                        una red social de programodres, un FB+LinkedIn, porque además
+	                        con todo ello puedes acabar encontrando trabajo.</aside>
+	                </section>
+
+	                <section>
+	                    <section><h1>Recuerda</h1>
+	                        <h1 class='fragment'>✔ Prueba</h1>
+	                        <h1 class='fragment'>✔ Examina</h1>
+	                        <h1 class='fragment'>
+	                            ✔ Entiende
+	                        </h1>
+	                    </section>
+	                    <section><h1>Y si todo falla</h1></section>
+	                    <section data-background='https://farm4.staticflickr.com/3282/2453915505_41bb8eb1bb_o_d.jpg'
+		                     alt='tira el paraguas'>
+	                        <aside class='notes'>Tira el paraguas</aside>
+	                    </section>
+	                </section>
+	                
+
+	                <section><h3>Créditos</h3>
+	                    <ul class='creditcontainer'><li class='credits'><a href='https://www.flickr.com/photos/pame_figueroa/3834138653/'>Paraguas
+		                por Pame Figueroa</a></li>
+	                        <li class='credits'><a href='https://www.flickr.com/photos/r00s/4599467981/'>Spectrum
+		                    por Rosa Meckman</a></li>
+	                        <li class='credits'><a href='https://www.flickr.com/photos/jleveque/253736080/'>Error
+		                    retry, fail por James LeVeque</a></li>
+	                        <li class='credits'><a href='https://en.wikipedia.org/wiki/Guru_Meditation'>Guru Meditation de la Wikipedia, sacado del Amiga</a></li>
+	                        <li class='credits'><a
+	                                                href='https://www.flickr.com/photos/lancefisher/3823543639/'>Core
+	                            Dumped por Lance Fisher</a></li>
+	                        <li class='credits'><a
+	                                                href='http://theoatmeal.com/comics/state_web_summer#tumblr'>Monstruos
+	                            verdes By Matthew Inman</a> - <a
+	                                                              href='https://commons.wikimedia.org/w/index.php?curid=38250302'>CC
+	                            BY 3.0, Wikipedia</a> </li>
+	                        <li class='credits'>La imagen del debugger está sacada de
+	                            <a href='https://www.youtube.com/watch?v=sCtY--xRUyI'>este
+	                                tutorial de Youtube</a></li>
+	                        <li class='credits'><a
+	                                                href='https://www.flickr.com/photos/togawanderings/14210516939/'>Pila
+	                            de Thomas Galvez</a></li>
+	                        <li class='credits'><a
+	                                                href='https://www.flickr.com/photos/glassholic/12752256845/'>USB
+	                            de Etienne</a></li>
+	                        <li class='credits'><a href='https://www.flickr.com/photos/epublicist/3546059144/'>El
+	                            bloque cuadrado en el agujero redondo de Yoel Ben
+	                            Avraham</a></li>
+	                        <li class='credits'><a
+	                                                href='https://www.flickr.com/photos/dhaun/5626938236/'>Diablillo
+	                            de Dirk Haun</a></li>
+	                        <li class='credits'><a
+	                                                href='https://www.flickr.com/photos/lexnger/2681745393/'>Justin
+	                            y Colin por Alexa Clark</a></li>
+	                        <li class='credits'>Gatito <a href='https://www.flickr.com/photos/girliemac/6508102407/in/album-72157628409467125/'>tetera de Tomomi</a> pero <a
+	                                                                                                                                                                          href='http://www.ns-nakagawa.com/blog/blog/category/27/page:2'>Original
+	                            aquí</a></li>
+
+	                        <li class='credits'><a
+	                                                href='https://www.flickr.com/photos/surtr/6432795643'>Tren
+	                            de H G</a></li>
+	                        <li class='credits'><a
+	                                                href='https://www.flickr.com/photos/ed_welker/4051466593/in/photolist-7b1PSi-7b5DZ5-7b5DH7-7b5DBS-7b1Qca-7b1PYi-7b1PLH-7b5CQw-pYdfaf-pHTdpg-6U5JwX-BnK5iN-77H2Se-q19aXi-q1iM1R-q1rFoQ-pHYwRN-pHWLek-q19aTa-76253h-4KarRh-63VUvT-ajYC36-7cDGSf-7cDFZ5-7cDFeb-7czM4M-7cDDBs-5bj5df-6razM4-7ckKbe-7cku1P-7ckxDz-7ckGUx-7cqr8Y-bCyF7G-bRtmHt-5Xekpt-ebYKTc-8QFVvs-7ckPtR-7cpqu3-7ckQHX-5W4eWS-5fAhMV-7cptPb-7cpNBo-7ckEYk-7ckBhv-7ckyu6'>Tío
+	                            de SO de Eddie Welker</a></li>
+	                        <li class='credits'><a
+	                                                href='https://www.flickr.com/photos/78476250@N00/2453915505/'>Paraguas
+	                            roto de Tyler Clemens</a></li>
+	                    </ul>
+                        </section>
+                        
+		    </div>
 		</div>
 
 		<script src="dist/reveal.js"></script>
