@@ -416,7 +416,7 @@ test('loads', function (t) {
 	                    </section>
 
 	                    <section><h1>Testea siempre que integres</h1>
-                                <pre><code>sudo: required
+                                <pre><code data-line-numbers="11-13">sudo: required
 dist: trusty
 language: perl
 perl:
@@ -424,11 +424,9 @@ perl:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get -y install libhunspell-1.3-0 libhunspell-dev
-  - echo "use Test::Text;just_check( 'text','/usr/share/hunspell');"
-      > just_check.t
+  - echo "use Test::Text;just_check( 'text','/usr/share/hunspell');"  > just_check.t
 install: cpanm  ExtUtils::PkgConfig Test::Text TAP::Harness
-script: >
-  perl -MTAP::Harness -e 'use utf8;
+script: perl -MTAP::Harness -e 'use utf8;
     my $harness = TAP::Harness->new( {verbosity => 0} );
     die "FAIL" if  $harness->runtests( "just_check.t" )->failed;'</code></pre>
 	                        <aside class='notes'>Este fichero para describir la
@@ -452,6 +450,56 @@ script: >
 	                            gestión de fuentes como git, que deberías hacerlo, Y LO
 	                            SABES. Pero cuando sucede el error...</aside>
 	                    </section>
+
+                            <section><h1>Programa fuera del camino
+                                feliz</h1>
+                                <pre><code data-line-numbers="6,13">const elements = { /...
+  numberButton: function (number) {
+    if (this.isDigit(number)) {
+      return document.getElementById(`${BUTTON_PREFIX}-${number}`)
+    } else {
+      throw new Error(`${number} is not a digit`)
+    }
+  },
+  opButton: function (op) {
+    if (this.isOpcode(op)) {
+      return document.getElementById(`${BUTTON_PREFIX}-${operations[op][0]}`)
+    } else {
+      throw new Error(`operator ${op} does not exist`)
+    }
+  }, //...
+}</code></pre>
+                                <aside class="notes">El camino feliz o <em>happy path</em> es donde todo sale bien, los tipos son siempre correctos, los argumentos están siempre dentro de su rango... Las cosas chungas pasan y pasarán</aside>
+                            </section>
+
+                            <section><h1>Excepciones con tipo</h1>
+                                <pre><code data-line-numbers="4-6">class Milestone:
+    # Definición de la clase... 
+
+class NoIssueException(Exception):
+    def __init__(self,*args,**kwargs):
+        Exception.__init__(self,"Milestone sin issues")
+                                </code></pre>
+                                <aside class="notes">La mayor parte de los lenguajes permiten definir excepciones con clase, que haga más fácil capturarlas, mitigar su efecto en el código</aside>
+                            </section>
+
+                            <section><h1>También en los API</h1>
+                                <pre><code data-line-numbers="5,8|10">app.get('/porra/ganador/:competition/:year/:local/:visitante/', function( req, response ) {
+    const ID= crea_id(req.params.local,req.params.visitante,
+                    req.params.competition, req.params.year );
+    if ( !porras.porra(ID) ) {
+        response.status(404).send("No existe esa porra");
+    } else {
+        if ( !porras.porra(ID).resultado ) {
+            response.status(404).send("No hay resultado para ese partido");
+        } else {
+            response.status(200).send( porras.ganadores( ID ) );
+        }
+    }
+
+});</code></pre>
+                                <aside class="notes">Los códigos de estado de HTTP tienen un significado específico; hay que usarlos correctamente. Los errores 4xx significan: hay un error, tú tienes la culpa; pero siempre te dice cuál es el error y cómo puedes solucionarlo.</aside>
+                            </section>
 
 	                </section><!-- end fool proof o baka yoke-->
 
@@ -582,8 +630,7 @@ script: >
 	                <section
 	                    data-background='https://farm9.staticflickr.com/8700/16870559579_930471e31c_z_d.jpg'
 	                                     alt='pegatas GitHub'>
-	                    <h1 class='bkg'><em>Issue</em> en <a
-	                                                          href='http://github.com/'>GitHub</a></h1>
+	                    <h1 class='bkg'><em>Issue</em> en <a href='http://github.com/'>GitHub</a></h1>
 	                    <aside class='notes'>Y esto gracias a que el 100%, o al
 	                        menos espero que el 100%, de las herramientas que usamos para
 	                        aprender informática son libres. Puedes interaccionar con el
